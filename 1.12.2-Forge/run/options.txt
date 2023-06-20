@@ -7,7 +7,7 @@ saturation:0.0
 renderDistance:5
 guiScale:2
 particles:2
-bobView:true
+bobView:false
 anaglyph3d:false
 maxFps:260
 fboEnable:true
@@ -15,8 +15,8 @@ difficulty:1
 fancyGraphics:false
 ao:0
 renderClouds:false
-resourcePacks:["§dHerta §916X.zip"]
-incompatibleResourcePacks:["§dHerta §916X.zip"]
+resourcePacks:["§dHerta §916X.zip","打击音效玻璃.zip"]
+incompatibleResourcePacks:["§dHerta §916X.zip","打击音效玻璃.zip"]
 lastServer:
 lang:en_us
 chatVisibility:0
@@ -25,7 +25,7 @@ chatLinks:true
 chatLinksPrompt:true
 chatOpacity:1.0
 snooperEnabled:true
-fullscreen:true
+fullscreen:false
 enableVsync:false
 useVbo:true
 hideServerAddress:false

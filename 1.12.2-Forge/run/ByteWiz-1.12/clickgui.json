@@ -3,12 +3,12 @@
     "open": true,
     "visible": true,
     "posX": 205,
-    "posY": -343,
+    "posY": 17,
     "Aimbot": {
       "Settings": false
     },
     "Aura": {
-      "Settings": false
+      "Settings": true
     },
     "AutoArmor": {
       "Settings": false
@@ -84,7 +84,7 @@
     "open": true,
     "visible": true,
     "posX": 744,
-    "posY": -50,
+    "posY": 310,
     "AirJump": {
       "Settings": false
     },
@@ -189,7 +189,7 @@
     "open": true,
     "visible": true,
     "posX": 475,
-    "posY": -19,
+    "posY": 341,
     "Animations": {
       "Settings": false
     },
@@ -291,7 +291,7 @@
     "open": true,
     "visible": true,
     "posX": 13,
-    "posY": -8,
+    "posY": 352,
     "Ambience": {
       "Settings": false
     },
@@ -323,7 +323,7 @@
       "Settings": false
     },
     "Scaffold": {
-      "Settings": true
+      "Settings": false
     },
     "SpeedMine": {
       "Settings": true
@@ -342,7 +342,7 @@
     "open": true,
     "visible": true,
     "posX": 865,
-    "posY": -159,
+    "posY": 201,
     "AntiBot": {
       "Settings": false
     },
@@ -380,8 +380,8 @@
   "Exploit": {
     "open": true,
     "visible": true,
-    "posX": 600,
-    "posY": -272,
+    "posX": 741,
+    "posY": 86,
     "AbortBreaking": {
       "Settings": false
     },
@@ -458,17 +458,11 @@
       "Settings": false
     }
   },
-  "Targets": {
-    "open": true,
-    "visible": true,
-    "posX": 65,
-    "posY": -94
-  },
   "ByteWiz": {
     "open": true,
     "visible": true,
     "posX": 986,
-    "posY": -204,
+    "posY": 156,
     "AutoGG": {
       "Settings": false
     },
@@ -512,7 +506,7 @@
       "Settings": false
     },
     "ScaffoldHelper": {
-      "Settings": false
+      "Settings": true
     },
     "Teams": {
       "Settings": false
@@ -527,11 +521,17 @@
       "Settings": false
     }
   },
+  "Targets": {
+    "open": true,
+    "visible": true,
+    "posX": 51,
+    "posY": 216
+  },
   "Player": {
     "open": true,
     "visible": true,
-    "posX": 235,
-    "posY": 69,
+    "posX": 143,
+    "posY": 409,
     "AntiAFK": {
       "Settings": false
     },
