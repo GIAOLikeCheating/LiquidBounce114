@@ -63,7 +63,9 @@ class Effects(x: Double = 2.0, y: Double = 10.0, scale: Float = 1F,
                 width = stringWidth
 
             //fontRenderer.drawString(name, -stringWidth, y, potion.liquidColor, shadow.get())
-            fontRenderer.drawString(name , -stringWidth , y , potion.liquidColor , shadow.get())
+            //box
+            RoundedUtil.drawRoundOutline(10F,10F,-stringWidth,y,3F,2F, Color(108,0,122),Color(108,0,122))
+            fontRenderer.drawString(name , -stringWidth , y , 1 , shadow.get())
 
 
 

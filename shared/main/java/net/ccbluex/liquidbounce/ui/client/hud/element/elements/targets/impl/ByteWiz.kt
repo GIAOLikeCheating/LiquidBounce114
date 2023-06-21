@@ -29,8 +29,6 @@ class ByteWiz(inst: Target): TargetStyle("ByteWiz", inst, true) {
                 .toFloat()
         val playerInfo = mc.netHandler.getPlayerInfo(entity.uniqueID)
 
-        // Draw rect box
-        RenderUtils.drawRoundedRect(0F, 0F, width, 40F, 3F, targetInstance.bgColor.rgb)
         // Health
         RoundedUtil.drawRound(
                 37F,

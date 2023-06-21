@@ -80,6 +80,51 @@
       "Settings": false
     }
   },
+  "Player": {
+    "open": true,
+    "visible": true,
+    "posX": 143,
+    "posY": 409,
+    "AntiAFK": {
+      "Settings": false
+    },
+    "AntiCactus": {
+      "Settings": false
+    },
+    "AutoRespawn": {
+      "Settings": false
+    },
+    "AutoTool": {
+      "Settings": false
+    },
+    "Blink": {
+      "Settings": false
+    },
+    "Eagle": {
+      "Settings": true
+    },
+    "FastUse": {
+      "Settings": false
+    },
+    "InvCleaner": {
+      "Settings": false
+    },
+    "KeepAlive": {
+      "Settings": false
+    },
+    "NoFall": {
+      "Settings": false
+    },
+    "Reach": {
+      "Settings": false
+    },
+    "Regen": {
+      "Settings": false
+    },
+    "Zoot": {
+      "Settings": false
+    }
+  },
   "Movement": {
     "open": true,
     "visible": true,
@@ -526,50 +571,5 @@
     "visible": true,
     "posX": 51,
     "posY": 216
-  },
-  "Player": {
-    "open": true,
-    "visible": true,
-    "posX": 143,
-    "posY": 409,
-    "AntiAFK": {
-      "Settings": false
-    },
-    "AntiCactus": {
-      "Settings": false
-    },
-    "AutoRespawn": {
-      "Settings": false
-    },
-    "AutoTool": {
-      "Settings": false
-    },
-    "Blink": {
-      "Settings": false
-    },
-    "Eagle": {
-      "Settings": true
-    },
-    "FastUse": {
-      "Settings": false
-    },
-    "InvCleaner": {
-      "Settings": false
-    },
-    "KeepAlive": {
-      "Settings": false
-    },
-    "NoFall": {
-      "Settings": false
-    },
-    "Reach": {
-      "Settings": false
-    },
-    "Regen": {
-      "Settings": false
-    },
-    "Zoot": {
-      "Settings": false
-    }
   }
 }

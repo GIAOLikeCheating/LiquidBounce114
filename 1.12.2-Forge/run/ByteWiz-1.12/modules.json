@@ -780,7 +780,7 @@
     "Array": true
   },
   "Teams": {
-    "State": true,
+    "State": false,
     "KeyBind": 45,
     "Array": true
   },
