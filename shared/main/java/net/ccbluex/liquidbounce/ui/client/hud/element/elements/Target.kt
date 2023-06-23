@@ -3,7 +3,7 @@ package net.ccbluex.liquidbounce.ui.client.hud.element.elements
 import net.ccbluex.liquidbounce.LiquidBounce
 import net.ccbluex.liquidbounce.api.minecraft.client.entity.IEntityLivingBase
 import net.ccbluex.liquidbounce.features.module.modules.combat.KillAura
-import net.ccbluex.liquidbounce.features.module.modules.render.ColorMixer
+import net.ccbluex.liquidbounce.features.module.modules.tomk.VisualColor
 import net.ccbluex.liquidbounce.ui.client.hud.element.Border
 import net.ccbluex.liquidbounce.ui.client.hud.element.Element
 import net.ccbluex.liquidbounce.ui.client.hud.element.ElementInfo
@@ -52,7 +52,7 @@ class Target : Element() {
     val showWithChatOpen = BoolValue("Show-ChatOpen", true)
     val resetBar = BoolValue("ResetBarWhenHiding", false)
 
-    val colorModeValue = ListValue("Color", arrayOf("Custom", "Rainbow", "Sky", "Slowly", "Fade", "Mixer", "Health"), "Custom")
+    val colorModeValue = ListValue("Color", arrayOf("Custom", "Rainbow", "Sky", "Slowly", "Fade", "DoubleColor", "Health"), "Custom")
     val redValue = IntegerValue("Red", 252, 0, 255)
     val greenValue = IntegerValue("Green", 96, 0, 255)
     val blueValue = IntegerValue("Blue", 66, 0, 255)
@@ -104,7 +104,7 @@ class Target : Element() {
             "Sky" -> RenderUtils.skyRainbow(0, saturationValue.get(), brightnessValue.get())
             "Fade" -> ColorUtils.fade(Color(redValue.get(), greenValue.get(), blueValue.get()), 0, 100)
             "Health" -> if (actualTarget != null) BlendUtils.getHealthColor(actualTarget.health, actualTarget.maxHealth) else Color.green
-            "Mixer" -> ColorMixer.getMixedColor(0, waveSecondValue.get())
+            "DoubleColor" -> Color(VisualColor.r.get(),VisualColor.g.get(),VisualColor.b.get())
             else -> ColorUtils.LiquidSlowly(System.nanoTime(), 0, saturationValue.get(), brightnessValue.get())!!
         }
 

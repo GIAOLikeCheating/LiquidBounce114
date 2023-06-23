@@ -22,6 +22,7 @@ import net.ccbluex.liquidbounce.features.module.ModuleCategory;
 import net.ccbluex.liquidbounce.features.module.ModuleInfo;
 import net.ccbluex.liquidbounce.features.module.modules.movement.Speed;
 import net.ccbluex.liquidbounce.ui.client.hud.element.elements.Notification;
+
 import net.ccbluex.liquidbounce.ui.font.Fonts;
 import net.ccbluex.liquidbounce.utils.*;
 import net.ccbluex.liquidbounce.utils.block.BlockUtils;
@@ -42,7 +43,7 @@ import java.awt.*;
 
 @ModuleInfo(
         name = "Scaffold",
-        description = "Scaffold",
+        description = "sca",
         category = ModuleCategory.WORLD,
         keyBind = Keyboard.KEY_G
 )
@@ -239,9 +240,7 @@ public class Scaffold extends Module {
     @EventTarget
     public void onUpdate(final UpdateEvent event) {
 
-        if(getBlocksAmount() == 0){
-            this.toggle();
-        }
+
         getBestBlocks();
         mc.getTimer().setTimerSpeed(timerValue.get());
 
@@ -692,7 +691,7 @@ public class Scaffold extends Module {
             GL11.glDisable(GL11.GL_BLEND);
             GL11.glDisable(GL11.GL_LINE_SMOOTH);
             //GL11.glPopMatrix();
-            RenderUtils.drawRoundedRect(scaledResolution.getScaledWidth() / 2 - (infoWidth / 2) - 4, scaledResolution.getScaledHeight() - 60, scaledResolution.getScaledWidth() / 2 + (infoWidth / 2) + 4, scaledResolution.getScaledHeight() - 74, 2F, new Color(0.15F, 0.15F, 0.15F, progress).getRGB());
+            RenderUtils.drawRoundedRect(scaledResolution.getScaledWidth() / 2 - (infoWidth / 2) - 4, scaledResolution.getScaledHeight() - 60, scaledResolution.getScaledWidth() / 2 + (infoWidth / 2) + 4, scaledResolution.getScaledHeight() - 74, 2, new Color(0.15F, 0.15F, 0.15F, progress).getRGB());
             GlStateManager.resetColor();
             Fonts.font35.drawCenteredString(info, scaledResolution.getScaledWidth() / 2 + 0.1F, scaledResolution.getScaledHeight() - 70, new Color(1F, 1F, 1F, 0.8F * progress).getRGB(), false);
             GlStateManager.translate(0, 14F + (progress * 4F), 0);
@@ -714,7 +713,7 @@ public class Scaffold extends Module {
             final PlaceInfo placeInfo = PlaceInfo.get(blockPos);
 
             if (BlockUtils.isReplaceable(blockPos) && placeInfo != null) {
-                RenderUtils.drawBlockBox(blockPos, new Color(96, 33, 206, 65), true);
+                RenderUtils.drawBlockBox(blockPos, new Color(168, 55, 184, 60), true);
                 break;
             }
         }

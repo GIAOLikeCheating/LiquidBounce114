@@ -58,10 +58,10 @@
     "KillFix": {
       "Settings": false
     },
-    "MoreKB": {
+    "NoFriends": {
       "Settings": false
     },
-    "NoFriends": {
+    "SuperKnockback": {
       "Settings": false
     },
     "TNTBlock": {
@@ -77,51 +77,6 @@
       "Settings": false
     },
     "Velocity2": {
-      "Settings": false
-    }
-  },
-  "Player": {
-    "open": true,
-    "visible": true,
-    "posX": 143,
-    "posY": 409,
-    "AntiAFK": {
-      "Settings": false
-    },
-    "AntiCactus": {
-      "Settings": false
-    },
-    "AutoRespawn": {
-      "Settings": false
-    },
-    "AutoTool": {
-      "Settings": false
-    },
-    "Blink": {
-      "Settings": false
-    },
-    "Eagle": {
-      "Settings": true
-    },
-    "FastUse": {
-      "Settings": false
-    },
-    "InvCleaner": {
-      "Settings": false
-    },
-    "KeepAlive": {
-      "Settings": false
-    },
-    "NoFall": {
-      "Settings": false
-    },
-    "Reach": {
-      "Settings": false
-    },
-    "Regen": {
-      "Settings": false
-    },
-    "Zoot": {
       "Settings": false
     }
   },
@@ -230,108 +185,6 @@
       "Settings": false
     }
   },
-  "Render": {
-    "open": true,
-    "visible": true,
-    "posX": 475,
-    "posY": 341,
-    "Animations": {
-      "Settings": false
-    },
-    "AntiBlind": {
-      "Settings": false
-    },
-    "BlockESP": {
-      "Settings": false
-    },
-    "BlockOverlay": {
-      "Settings": false
-    },
-    "Breadcrumbs": {
-      "Settings": false
-    },
-    "CameraClip": {
-      "Settings": false
-    },
-    "Chams": {
-      "Settings": false
-    },
-    "ClickGUI": {
-      "Settings": false
-    },
-    "CustomFont": {
-      "Settings": false
-    },
-    "ESP": {
-      "Settings": false
-    },
-    "EnchantEffect": {
-      "Settings": false
-    },
-    "FreeCam": {
-      "Settings": false
-    },
-    "Fullbright": {
-      "Settings": false
-    },
-    "HUD": {
-      "Settings": false
-    },
-    "ItemESP": {
-      "Settings": false
-    },
-    "ItemPhysics": {
-      "Settings": true
-    },
-    "JumpCircle": {
-      "Settings": false
-    },
-    "NameTags": {
-      "Settings": false
-    },
-    "NoBob": {
-      "Settings": false
-    },
-    "NoFOV": {
-      "Settings": false
-    },
-    "NoHurtCam": {
-      "Settings": false
-    },
-    "NoScoreboard": {
-      "Settings": false
-    },
-    "NoSwing": {
-      "Settings": false
-    },
-    "OldHitting": {
-      "Settings": true
-    },
-    "Projectiles": {
-      "Settings": false
-    },
-    "ProphuntESP": {
-      "Settings": false
-    },
-    "Rotations": {
-      "Settings": false
-    },
-    "StorageESP": {
-      "Settings": false
-    },
-    "TNTESP": {
-      "Settings": false
-    },
-    "Tracers": {
-      "Settings": false
-    },
-    "TrueSight": {
-      "Settings": false
-    },
-    "XRay": {
-      "Settings": false
-    }
-  },
   "World": {
     "open": true,
     "visible": true,
@@ -383,50 +236,11 @@
       "Settings": false
     }
   },
-  "Misc": {
-    "open": true,
-    "visible": true,
-    "posX": 865,
-    "posY": 201,
-    "AntiBot": {
-      "Settings": false
-    },
-    "AtAllProvider": {
-      "Settings": false
-    },
-    "ComponentOnHover": {
-      "Settings": false
-    },
-    "LiquidChat": {
-      "Settings": false
-    },
-    "MemoryFix": {
-      "Settings": false
-    },
-    "MidClick": {
-      "Settings": false
-    },
-    "NameProtect": {
-      "Settings": false
-    },
-    "NoC03": {
-      "Settings": false
-    },
-    "NoRotateSet": {
-      "Settings": false
-    },
-    "ResourcePackSpoof": {
-      "Settings": false
-    },
-    "Spammer": {
-      "Settings": false
-    }
-  },
   "Exploit": {
     "open": true,
     "visible": true,
-    "posX": 741,
-    "posY": 86,
+    "posX": 599,
+    "posY": 100,
     "AbortBreaking": {
       "Settings": false
     },
@@ -571,5 +385,191 @@
     "visible": true,
     "posX": 51,
     "posY": 216
+  },
+  "Player": {
+    "open": true,
+    "visible": true,
+    "posX": 176,
+    "posY": 410,
+    "AntiAFK": {
+      "Settings": false
+    },
+    "AntiCactus": {
+      "Settings": false
+    },
+    "AutoRespawn": {
+      "Settings": false
+    },
+    "AutoTool": {
+      "Settings": false
+    },
+    "Blink": {
+      "Settings": false
+    },
+    "Eagle": {
+      "Settings": true
+    },
+    "FastUse": {
+      "Settings": false
+    },
+    "InvCleaner": {
+      "Settings": false
+    },
+    "KeepAlive": {
+      "Settings": false
+    },
+    "NoFall": {
+      "Settings": false
+    },
+    "Reach": {
+      "Settings": false
+    },
+    "Regen": {
+      "Settings": false
+    },
+    "Zoot": {
+      "Settings": false
+    }
+  },
+  "Misc": {
+    "open": true,
+    "visible": true,
+    "posX": 735,
+    "posY": 38,
+    "AntiBot": {
+      "Settings": true
+    },
+    "AtAllProvider": {
+      "Settings": false
+    },
+    "ComponentOnHover": {
+      "Settings": false
+    },
+    "LiquidChat": {
+      "Settings": false
+    },
+    "MemoryFix": {
+      "Settings": false
+    },
+    "MidClick": {
+      "Settings": false
+    },
+    "NameProtect": {
+      "Settings": false
+    },
+    "NoC03": {
+      "Settings": false
+    },
+    "NoRotateSet": {
+      "Settings": false
+    },
+    "ResourcePackSpoof": {
+      "Settings": false
+    },
+    "Spammer": {
+      "Settings": false
+    }
+  },
+  "Render": {
+    "open": true,
+    "visible": true,
+    "posX": 471,
+    "posY": 313,
+    "Animations": {
+      "Settings": false
+    },
+    "AntiBlind": {
+      "Settings": false
+    },
+    "BlockESP": {
+      "Settings": false
+    },
+    "BlockOverlay": {
+      "Settings": false
+    },
+    "Breadcrumbs": {
+      "Settings": false
+    },
+    "CameraClip": {
+      "Settings": false
+    },
+    "Chams": {
+      "Settings": false
+    },
+    "ClickGUI": {
+      "Settings": false
+    },
+    "CustomFont": {
+      "Settings": false
+    },
+    "ESP": {
+      "Settings": false
+    },
+    "EnchantEffect": {
+      "Settings": false
+    },
+    "FreeCam": {
+      "Settings": false
+    },
+    "Fullbright": {
+      "Settings": false
+    },
+    "HUD": {
+      "Settings": false
+    },
+    "ItemESP": {
+      "Settings": false
+    },
+    "ItemPhysics": {
+      "Settings": true
+    },
+    "JumpCircle": {
+      "Settings": false
+    },
+    "NameTags": {
+      "Settings": false
+    },
+    "NoBob": {
+      "Settings": false
+    },
+    "NoFOV": {
+      "Settings": false
+    },
+    "NoHurtCam": {
+      "Settings": false
+    },
+    "NoScoreboard": {
+      "Settings": false
+    },
+    "NoSwing": {
+      "Settings": false
+    },
+    "OldHitting": {
+      "Settings": true
+    },
+    "Projectiles": {
+      "Settings": false
+    },
+    "ProphuntESP": {
+      "Settings": false
+    },
+    "Rotations": {
+      "Settings": false
+    },
+    "StorageESP": {
+      "Settings": false
+    },
+    "TNTESP": {
+      "Settings": false
+    },
+    "Tracers": {
+      "Settings": false
+    },
+    "TrueSight": {
+      "Settings": false
+    },
+    "XRay": {
+      "Settings": false
+    }
   }
 }

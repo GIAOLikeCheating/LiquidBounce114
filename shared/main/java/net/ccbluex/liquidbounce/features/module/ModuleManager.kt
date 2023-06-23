@@ -11,6 +11,7 @@ import net.ccbluex.liquidbounce.event.KeyEvent
 import net.ccbluex.liquidbounce.event.Listenable
 import net.ccbluex.liquidbounce.features.module.modules.combat.*
 import net.ccbluex.liquidbounce.features.module.modules.exploit.*
+import net.ccbluex.liquidbounce.features.module.modules.hyt.ScaffoldHelper
 import net.ccbluex.liquidbounce.features.module.modules.misc.*
 import net.ccbluex.liquidbounce.features.module.modules.movement.*
 import net.ccbluex.liquidbounce.features.module.modules.player.*
@@ -189,7 +190,6 @@ class ModuleManager : Listenable {
                 AutoGG::class.java,
                 AutoLeos::class.java,
                 Gapple::class.java,
-                NoLagBack::class.java,
                 MemoryFix::class.java,
                 WolrdAnim::class.java,
                 FdpScaffold::class.java,
@@ -203,7 +203,6 @@ class ModuleManager : Listenable {
                 VisualColor::class.java,
                 GrimFull::class.java,
                 PingSpoof::class.java,
-                ScaffoldHelper::class.java,
                 FakeName::class.java,
                 Animations::class.java,
                 StrafeFix::class.java,
@@ -213,7 +212,9 @@ class ModuleManager : Listenable {
                 NoC03::class.java,
                 Ambience::class.java,
                 Velocity2::class.java,
-                HytBlink::class.java
+                HytBlink::class.java,
+                NoLagBack::class.java,
+                ScaffoldHelper::class.java
 
         )
 

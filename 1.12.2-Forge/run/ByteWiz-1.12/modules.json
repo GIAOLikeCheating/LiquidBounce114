@@ -40,9 +40,9 @@
     "Array": true
   },
   "AntiBot": {
-    "State": false,
+    "State": true,
     "KeyBind": 0,
-    "Array": true
+    "Array": false
   },
   "AntiCactus": {
     "State": false,
@@ -141,7 +141,7 @@
   },
   "Blink": {
     "State": false,
-    "KeyBind": 0,
+    "KeyBind": 47,
     "Array": true
   },
   "BlockESP": {
@@ -356,7 +356,7 @@
   },
   "GrimVelo": {
     "State": false,
-    "KeyBind": 50,
+    "KeyBind": 0,
     "Array": true
   },
   "HUD": {
@@ -375,19 +375,19 @@
     "Array": true
   },
   "HytAntiBot": {
-    "State": false,
+    "State": true,
     "KeyBind": 0,
-    "Array": true
+    "Array": false
   },
   "HytBlink": {
     "State": false,
-    "KeyBind": 47,
+    "KeyBind": 0,
     "Array": true
   },
   "HytDisabler": {
     "State": false,
     "KeyBind": 0,
-    "Array": false
+    "Array": true
   },
   "HytNoHurt": {
     "State": true,
@@ -451,7 +451,7 @@
   },
   "KillAura2": {
     "State": false,
-    "KeyBind": 44,
+    "KeyBind": 45,
     "Array": true
   },
   "KillFix": {
@@ -471,7 +471,7 @@
   },
   "LiquidWalk": {
     "State": false,
-    "KeyBind": 0,
+    "KeyBind": 36,
     "Array": true
   },
   "Liquids": {
@@ -499,15 +499,10 @@
     "KeyBind": 0,
     "Array": true
   },
-  "MoreKB": {
+  "MultiActions": {
     "State": true,
     "KeyBind": 0,
-    "Array": true
-  },
-  "MultiActions": {
-    "State": false,
-    "KeyBind": 0,
-    "Array": true
+    "Array": false
   },
   "NameProtect": {
     "State": false,
@@ -526,7 +521,7 @@
   },
   "NoC03": {
     "State": false,
-    "KeyBind": 44,
+    "KeyBind": 45,
     "Array": true
   },
   "NoClip": {
@@ -769,6 +764,11 @@
     "KeyBind": 0,
     "Array": true
   },
+  "SuperKnockback": {
+    "State": true,
+    "KeyBind": 0,
+    "Array": true
+  },
   "TNTBlock": {
     "State": false,
     "KeyBind": 0,
@@ -781,7 +781,7 @@
   },
   "Teams": {
     "State": false,
-    "KeyBind": 45,
+    "KeyBind": 44,
     "Array": true
   },
   "Teleport": {
@@ -806,7 +806,7 @@
   },
   "Tower": {
     "State": false,
-    "KeyBind": 0,
+    "KeyBind": 24,
     "Array": true
   },
   "Tracers": {
@@ -826,7 +826,7 @@
   },
   "Velocity": {
     "State": false,
-    "KeyBind": 44,
+    "KeyBind": 0,
     "Array": true
   },
   "Velocity2": {
@@ -835,7 +835,7 @@
     "Array": true
   },
   "VisualColor": {
-    "State": true,
+    "State": false,
     "KeyBind": 0,
     "Array": false
   },

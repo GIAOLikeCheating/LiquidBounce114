@@ -172,15 +172,13 @@ class Notification(val title: String, val content: String, val type: NotifyType,
 
         if (s == "SUCCESS") {
 
-            RoundedUtil.drawRound(38F,0F,width - 50F,18F,4F, Color(96 ,33, 206,150))
-            Fonts.tenacitycheck60.drawString("o",40F,4F,Color(255 ,255, 255,240).rgb,true)
-            Fonts.tenacitybold40.drawString(content,55f,5f,Color.white.rgb,true)
+            RoundedUtil.drawRound(47F,0F,width - 70F,15F,2F, Color(45 ,45, 45,100))
+            Fonts.font35.drawString(content,55f,5f,Color.white.rgb,false)
 
         }
         if (s == "ERROR") {
-            RoundedUtil.drawRound(38F,0F,width - 50F,18F,4F, Color(96,33,206,150))
-            Fonts.tenacitycheck60.drawString("p",40F,4F,Color(255,255,255,240).rgb,true)
-            Fonts.tenacitybold40.drawString(content,55f,5f,Color.white.rgb,true)
+            RoundedUtil.drawRound(47F,0F,width - 70F,15F,2F, Color(45,45,45,100))
+            Fonts.font35.drawString(content,55f,5f,Color.white.rgb,false)
         }
 
 

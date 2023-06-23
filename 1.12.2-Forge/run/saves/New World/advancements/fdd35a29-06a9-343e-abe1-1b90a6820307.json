@@ -121,7 +121,8 @@
   },
   "minecraft:adventure/adventuring_time": {
     "criteria": {
-      "forest_hills": "2023-06-16 17:36:05 +0800"
+      "forest_hills": "2023-06-16 17:36:05 +0800",
+      "plains": "2023-06-22 16:20:17 +0800"
     },
     "done": false
   }

@@ -1,6 +1,6 @@
 version:1343
 invertYMouse:false
-mouseSensitivity:0.37323943
+mouseSensitivity:0.44366196
 fov:0.375
 gamma:1.0
 saturation:0.0
@@ -11,12 +11,12 @@ bobView:false
 anaglyph3d:false
 maxFps:260
 fboEnable:true
-difficulty:1
+difficulty:2
 fancyGraphics:false
 ao:0
 renderClouds:false
-resourcePacks:["§dHerta §916X.zip","打击音效玻璃.zip"]
-incompatibleResourcePacks:["§dHerta §916X.zip","打击音效玻璃.zip"]
+resourcePacks:["!   §bvip§der §8[§b16§dx§8].zip","打击音效玻璃.zip"]
+incompatibleResourcePacks:["!   §bvip§der §8[§b16§dx§8].zip","打击音效玻璃.zip"]
 lastServer:
 lang:en_us
 chatVisibility:0
@@ -25,7 +25,7 @@ chatLinks:true
 chatLinksPrompt:true
 chatOpacity:1.0
 snooperEnabled:true
-fullscreen:false
+fullscreen:true
 enableVsync:false
 useVbo:true
 hideServerAddress:false

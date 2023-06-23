@@ -4,6 +4,8 @@ import net.ccbluex.liquidbounce.ui.client.hud.element.Border
 import net.ccbluex.liquidbounce.ui.client.hud.element.elements.Target
 import net.ccbluex.liquidbounce.ui.client.hud.element.elements.targets.TargetStyle
 import net.ccbluex.liquidbounce.ui.font.Fonts
+import net.ccbluex.liquidbounce.utils.extensions.getDistanceToEntityBox
+import net.ccbluex.liquidbounce.features.module.modules.tomk.VisualColor
 import net.ccbluex.liquidbounce.utils.render.RenderUtils
 import net.minecraft.client.renderer.GlStateManager
 import org.lwjgl.opengl.GL11
@@ -28,36 +30,55 @@ class ByteWiz(inst: Target): TargetStyle("ByteWiz", inst, true) {
                 .coerceAtLeast(118)
                 .toFloat()
         val playerInfo = mc.netHandler.getPlayerInfo(entity.uniqueID)
+        val color4 = RenderUtils.getGradientOffset(
+            Color(VisualColor.r.get(), VisualColor.b.get(), VisualColor.g.get()),
+            Color(VisualColor.r2.get(), VisualColor.b2.get(), VisualColor.g2.get()),
+            (kotlin.math.abs(
+                System.currentTimeMillis() / VisualColor.gradientSpeed.get()
+                    .toDouble() + (1 / 2)
+            ) / 10)
+        ).rgb
 
         // Health
         RoundedUtil.drawRound(
-                37F,
-                15.5F,
-                (width - 42) * (easingHealth / entity.maxHealth),
+                5F,
+                38F,
+                (width - 15) * (easingHealth / entity.maxHealth),
                 4F,
-                0.8F,
-                Color(108, 21, 122)
+                0.2F,
+                Color(color4)
         )
         updateAnim(entity.health)
+        //bar
+        RoundedUtil.drawRound(
+            0F,
+            0F,
+            width,
+            50F,
+            2F,
+            Color(0,0,0,60)
+        )
+
+
         // Name
-        Fonts.tenacitybold40.drawString(entity.name!!, 37, 3, getColor(-1).rgb)
+        Fonts.sfbold35.drawString("Name:" + entity.name!!, 37, 5, getColor(-1).rgb)
+        // Disance
+        Fonts.sfbold35.drawString("Distance: ${decimalFormat.format(mc.thePlayer!!.getDistanceToEntityBox(entity))}",37,15,getColor(-1).rgb)
+        // Health
+        Fonts.sfbold35.drawString("Health:${decimalFormat2.format(entity.health)}", 37, 25, getColor(-1).rgb)
         // Head
         if (playerInfo != null) {
             Stencil.write(false)
             GL11.glDisable(GL11.GL_TEXTURE_2D)
             GL11.glEnable(GL11.GL_BLEND)
             GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA)
-            RenderUtils.fastRoundedRect(4F, 4F, 34F, 34F, 7F)
+            RenderUtils.fastRoundedRect(4F, 4F, 34F, 34F, 0.2F)
             GL11.glDisable(GL11.GL_BLEND)
             GL11.glEnable(GL11.GL_TEXTURE_2D)
             Stencil.erase(true)
             drawHead(playerInfo.locationSkin, 4, 4, 30, 30, 1F - targetInstance.getFadeProgress())
             Stencil.dispose()
         }
-        // HP
-        GL11.glPushMatrix()
-        GL11.glScalef(1.3F,1.3F,1.3F)
-        Fonts.tenacitybold40.drawString(healthString , 30 , 18.5.toInt() , Color(255,255,255).rgb)
         //font.drawStringWithShadow(healthString, 37, 28.5.toInt(), Color(255,255,255).rgb)
         GL11.glPopMatrix()
 
