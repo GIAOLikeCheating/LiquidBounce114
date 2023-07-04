@@ -94,7 +94,7 @@ class ModuleManager : Listenable {
                 Zoot::class.java,
                 Regen::class.java,
                 NoFall::class.java,
-                Blink1::class.java,
+                Blink::class.java,
                 NameProtect::class.java,
                 NoHurtCam::class.java,
                 Ghost::class.java,
@@ -197,14 +197,11 @@ class ModuleManager : Listenable {
                 Title::class.java,
                 JumpCircle::class.java,
                 Disabler::class.java,
-                LegitSpeed::class.java,
                 KillFix::class.java,
-            AutoBlock::class.java,
+                AutoBlock::class.java,
                 VisualColor::class.java,
-                GrimFull::class.java,
                 PingSpoof::class.java,
                 FakeName::class.java,
-                Animations::class.java,
                 StrafeFix::class.java,
                 HytAntiBot::class.java,
                 HytNoHurt::class.java,
@@ -214,7 +211,13 @@ class ModuleManager : Listenable {
                 Velocity2::class.java,
                 HytBlink::class.java,
                 NoLagBack::class.java,
-                ScaffoldHelper::class.java
+                ScaffoldHelper::class.java,
+                MoreVisualColors::class.java,
+                Cape::class.java,
+                NewGUI::class.java,
+                Blink1::class.java,
+                GrimVelocity::class.java,
+                Animations::class.java
 
         )
 

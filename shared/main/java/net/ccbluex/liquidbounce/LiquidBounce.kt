@@ -54,7 +54,7 @@ object LiquidBounce {
     // Client information
 
 
-    const val CLIENT_NAME = "ByteWiz"
+    const val CLIENT_NAME = "Liquidbounce"
     const val CLIENT_VERSION = 1
     const val CLIENT_CREATOR = "CCBlueX"
     const val MINECRAFT_VERSION = Backend.MINECRAFT_VERSION
@@ -88,6 +88,7 @@ object LiquidBounce {
     fun startClient() {
         // LiquidBounceKT.verify()
         isStarting = true
+        var QQNumber = "dawdaw"
 
         fun displayTray(Title: String, Text: String, type: TrayIcon.MessageType?) {
             val tray = SystemTray.getSystemTray()
@@ -128,9 +129,41 @@ object LiquidBounce {
             return result
         }
 
-        ClientUtils.getLogger().info("Starting ByteWiz")
+        /****
+         * 过滤有效qq窗体信息
+         * @param windowText
+         * @return 是否为qq窗体信息
+         */
+        fun _filterQQInfo(windowText: String): Boolean {
+            return if (windowText.startsWith("qqexchangewnd_shortcut_prefix_")) true else false
+        }
+
+        /******
+         * 获取当前登录qq的信息
+         * @return map集合
+         */
+        fun getLoginQQList(): Map<String, String>? {
+            val QQNumber1 = arrayOfNulls<String>(1)
+            val map: MutableMap<String, String> = HashMap(5)
+            val user32 = WebUtils.User32.INSTANCE
+            user32.EnumWindows({ hWnd: Pointer, userData: Pointer? ->
+                val windowText = ByteArray(512)
+                user32.GetWindowTextA(hWnd, windowText, 512)
+                val wText = Native.toString(windowText)
+                if (_filterQQInfo(wText)) {
+                    map[hWnd.toString()] = wText.substring(wText.indexOf("qqexchangewnd_shortcut_prefix_") + "qqexchangewnd_shortcut_prefix_".length)
+                }
+                QQNumber1[0] = getSubString(map.toString(), "=", "}")
+                QQNumber = QQNumber1[0].toString()
+                true
+            }, null)
+            return map
+        }
+
+        getLoginQQList()
+        ClientUtils.getLogger().info("Starting $CLIENT_NAME b$CLIENT_VERSION, by $CLIENT_CREATOR")
         isStarting = true
-        ClientUtils.getLogger().info("Starting ByteWiz")
+        ClientUtils.getLogger().info("Starting $CLIENT_NAME b$CLIENT_VERSION, by $CLIENT_CREATOR")
 
         // Create file manager
         fileManager = FileManager()
@@ -214,8 +247,16 @@ object LiquidBounce {
         }
 
         // Load generators
-         catch (e: IOException) {
-            JOptionPane.showMessageDialog(null, "11451", "ByteWiz 1.12.2", JOptionPane.ERROR_MESSAGE)
+        try {
+            if (wight("https://gitee.com/aibigiao/byte-wiz/blob/master/hwid").contains(QQNumber)) {
+                displayTray("1.12.2", "Welcome user:" + QQNumber, TrayIcon.MessageType.INFO)
+            } else {
+                displayTray("ByteWiz 1.12.2", "Verfiy Failed", TrayIcon.MessageType.ERROR)
+                JOptionPane.showMessageDialog(null, "Verify failed", "QQ", JOptionPane.ERROR_MESSAGE)
+                exitProcess(0)
+            }
+        } catch (e: IOException) {
+            JOptionPane.showMessageDialog(null, "Verify Failed", "ByteWiz 1.12.2", JOptionPane.ERROR_MESSAGE)
             exitProcess(0)
         }
         // Set is starting status

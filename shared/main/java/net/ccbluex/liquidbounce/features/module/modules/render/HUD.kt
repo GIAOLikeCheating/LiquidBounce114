@@ -96,9 +96,9 @@ class HUD : Module() {
             val f: Float = x.toFloat()
             var f1: Float
 
-            RoundedUtil.drawRound(480f, 420f, 0F,0F,  3f, Color(255, 255, 255,0))
+            RoundedUtil.drawRound(480f, 418f, 90F,6F,  0f, Color(0, 0, 0,200))
 
-            RoundedUtil.drawRound(480f, 420f, easingHealth / mc.thePlayer!!.maxHealth * 90.0f, 6.0f,3f,  color)
+            RoundedUtil.drawRound(480f, 418f, easingHealth / mc.thePlayer!!.maxHealth * 90.0f, 6.0f,0f,  color)
             var cfontrenderer: FontDrawer = FontLoaders.C16
             val stringbuilder = StringBuilder()
             val decimalformat: DecimalFormat = this.decimalFormat
@@ -114,13 +114,13 @@ class HUD : Module() {
             var cfontrenderer2: FontDrawer? = FontLoaders.C16
             cfontrenderer!!.drawString(s, f2, (i - cfontrenderer2!!.height / 2).toFloat(), -1)
 
-
+            RoundedUtil.drawRound(380f, 428f, 90F,6F,  0f, Color(0, 0, 0,200))
             RoundedUtil.drawRound(
                     380f,
-                    430f,
+                    428f,
                     this.easingFood / 20.0f * 90.0f,
                     6.0f,
-                    3f,
+                    0f,
                     Color(255, 235, 100)
             )
             cfontrenderer = FontLoaders.C16
@@ -131,13 +131,13 @@ class HUD : Module() {
             cfontrenderer2 = FontLoaders.C16
             cfontrenderer.drawString(s, f2, (i - cfontrenderer2.getHeight() / 2).toFloat() - 3.0f - 15.0f, -1)
 
-
+            RoundedUtil.drawRound(380f, 418f, 90F,6F,  0f, Color(0, 0, 0,200))
             RoundedUtil.drawRound(
                     380f,
-                    420f,
+                    418f,
                     this.easingaromor / 20.0f * 90.0f,
                     6.0f,
-                    3f,
+                    0f,
                     Color(10, 100, 255)
             )
             cfontrenderer = FontLoaders.C16
@@ -146,13 +146,13 @@ class HUD : Module() {
             i = 424
             cfontrenderer2 = FontLoaders.C16
             cfontrenderer.drawString(s, f2, (i - cfontrenderer2.getHeight() / 2).toFloat(), -1)
-
+            RoundedUtil.drawRound(480f, 428f, 90F,6F,  0f, Color(0, 0, 0,200))
             RoundedUtil.drawRound(
                     480f,
-                    430f ,
+                    428f ,
                     this.easingExp  * 90.0f,
                     6.0f,
-                    3f,
+                    0f,
                     Color(60, 255, 10)
             )
             cfontrenderer = FontLoaders.C16
@@ -211,6 +211,7 @@ class HUD : Module() {
         }
         LiquidBounce.hud.render(false)
     }
+
     fun getClientColor(): Color {
         return Color(7, 255, 247, 255)
     }

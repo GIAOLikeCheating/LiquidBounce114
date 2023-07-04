@@ -15,6 +15,7 @@ import net.ccbluex.liquidbounce.features.module.ModuleInfo
 import net.ccbluex.liquidbounce.features.module.modules.exploit.Derp
 import net.ccbluex.liquidbounce.features.module.modules.combat.BowAimbot
 import net.ccbluex.liquidbounce.features.module.modules.combat.KillAura
+import net.ccbluex.liquidbounce.features.module.modules.tomk.FdpScaffold
 import net.ccbluex.liquidbounce.features.module.modules.world.*
 import net.ccbluex.liquidbounce.utils.RotationUtils
 import net.ccbluex.liquidbounce.value.BoolValue
@@ -64,6 +65,6 @@ class Rotations : Module() {
                 (getState(KillAura::class.java) && killAura.target != null) ||
                 getState(Derp::class.java) || getState(BowAimbot::class.java) ||
                 getState(Fucker::class.java) || getState(CivBreak::class.java) || getState(Nuker::class.java) ||
-                getState(ChestAura::class.java)
+                getState(ChestAura::class.java) || getState(FdpScaffold::class.java)
     }
 }

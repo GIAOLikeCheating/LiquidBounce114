@@ -6,6 +6,7 @@ import net.ccbluex.liquidbounce.ui.client.hud.element.Element
 import net.ccbluex.liquidbounce.ui.client.hud.element.ElementInfo
 import net.ccbluex.liquidbounce.ui.client.hud.element.Side
 import net.ccbluex.liquidbounce.ui.font.Fonts
+import net.ccbluex.liquidbounce.utils.MinecraftInstance
 import net.ccbluex.liquidbounce.utils.render.RenderUtils
 
 import org.lwjgl.opengl.GL11
@@ -20,6 +21,8 @@ import java.awt.Color
 @ElementInfo(name = "Notifications", single = true)
 class Notifications(x: Double = 0.0, y: Double = 0.0, scale: Float = 1F,
                     side: Side = Side(Side.Horizontal.RIGHT, Side.Vertical.DOWN)) : Element(x, y, scale, side) {
+
+
     /**
      * Example notification for CustomHUD designer
      */
@@ -172,13 +175,18 @@ class Notification(val title: String, val content: String, val type: NotifyType,
 
         if (s == "SUCCESS") {
 
-            RoundedUtil.drawRound(47F,0F,width - 70F,15F,2F, Color(45 ,45, 45,100))
+            RoundedUtil.drawRound(30F,0F,width - 50F,15F,1F, Color(45 ,45, 45,100))
             Fonts.font35.drawString(content,55f,5f,Color.white.rgb,false)
+            val successbu = MinecraftInstance.classProvider.createResourceLocation("liquidbounce/noti/suc.png")
+            RenderUtils.drawImage(successbu,35,0,15,15)
+
 
         }
         if (s == "ERROR") {
-            RoundedUtil.drawRound(47F,0F,width - 70F,15F,2F, Color(45,45,45,100))
+            RoundedUtil.drawRound(30F,0F,width - 50F,15F,1F, Color(45,45,45,100))
             Fonts.font35.drawString(content,55f,5f,Color.white.rgb,false)
+            val err = MinecraftInstance.classProvider.createResourceLocation("liquidbounce/noti/err.png")
+            RenderUtils.drawImage(err,35,0,15,15)
         }
 
 
@@ -189,8 +197,8 @@ class Notification(val title: String, val content: String, val type: NotifyType,
 }
 
 enum class NotifyType(var renderColor: Color) {
-    SUCCESS(Color(0 ,0, 0,200  )),
-    ERROR(Color(0 ,0, 0,200  )),
+    SUCCESS(Color(255 ,255, 255,200  )),
+    ERROR(Color(255 ,255, 255,200  )),
     WARNING(Color(0xF5FD00)),
     INFO(Color(137,214,255));
 }

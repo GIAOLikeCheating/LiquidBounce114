@@ -16,7 +16,8 @@ class AutoL : Module() {
     private val L = BoolValue ("L", true)
     var AutoLmsg = arrayOf(
 
-            "@aL"
+            "@aL 行不行啊老弟怎么被超级ByteWiz拷打了",
+            "@aL ByteWiz殴打你神秘代码⑧六⑤八4③久8⑦"
     )
     // Target
     var target: IEntityLivingBase? = null

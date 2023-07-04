@@ -13,7 +13,9 @@ import tomk.Stencil
 import tomk.render.RoundedUtil
 import java.awt.Color
 import kotlin.math.abs
-
+import ad.utils.Color.modules.CustomUI
+import net.ccbluex.liquidbounce.ui.client.hud.element.Element
+import net.ccbluex.liquidbounce.ui.client.hud.element.ElementInfo
 class ByteWiz(inst: Target): TargetStyle("ByteWiz", inst, true) {
 
     private var lastTarget: IEntityLivingBase? = null
@@ -35,44 +37,56 @@ class ByteWiz(inst: Target): TargetStyle("ByteWiz", inst, true) {
             Color(VisualColor.r2.get(), VisualColor.b2.get(), VisualColor.g2.get()),
             (kotlin.math.abs(
                 System.currentTimeMillis() / VisualColor.gradientSpeed.get()
-                    .toDouble() + (1 / 2)
+                    .toDouble() + (1 / 2) * width
             ) / 10)
         ).rgb
-
+        // outline
+        val color1 = RenderUtils.getGradientOffset(Color(VisualColor.r.get(),VisualColor.b.get(),VisualColor.g.get()), Color(VisualColor.r2.get(), VisualColor.b2.get(), VisualColor.g2.get(),1), (Math.abs(System.currentTimeMillis() / 200.toDouble() + 1 * width) / 10)).rgb
         // Health
         RoundedUtil.drawRound(
                 5F,
                 38F,
-                (width - 15) * (easingHealth / entity.maxHealth),
+                (width),
                 4F,
                 0.2F,
-                Color(color4)
+                Color(0,0,0,80)
         )
         updateAnim(entity.health)
         //bar
         RoundedUtil.drawRound(
             0F,
             0F,
-            width,
+            width + 28F,
             50F,
             2F,
             Color(0,0,0,60)
         )
+        // Health
+        RoundedUtil.drawRound(
+            5F,
+            38F,
+            (width) * (easingHealth / entity.maxHealth),
+            4F,
+            0.2F,
+            Color(VisualColor.r.get(),VisualColor.b.get(),VisualColor.g.get())
+        )
 
 
         // Name
-        Fonts.sfbold35.drawString("Name:" + entity.name!!, 37, 5, getColor(-1).rgb)
+        Fonts.minecraftFont.drawString("Name:" + entity.name!!, 37, 5, getColor(-1).rgb)
         // Disance
-        Fonts.sfbold35.drawString("Distance: ${decimalFormat.format(mc.thePlayer!!.getDistanceToEntityBox(entity))}",37,15,getColor(-1).rgb)
-        // Health
-        Fonts.sfbold35.drawString("Health:${decimalFormat2.format(entity.health)}", 37, 25, getColor(-1).rgb)
+        Fonts.minecraftFont.drawString("Distance: ${decimalFormat.format(mc.thePlayer!!.getDistanceToEntityBox(entity))}",37,15,getColor(-1).rgb)
+        // HurtTime
+        Fonts.minecraftFont.drawString("HurtTime:${decimalFormat2.format(entity.hurtTime)}", 37, 25, getColor(-1).rgb)
+        // HP
+        Fonts.minecraftFont.drawString("${decimalFormat2.format(entity.health)}",(width) * (easingHealth / entity.maxHealth) + 8F,37F,getColor(-1).rgb)
         // Head
         if (playerInfo != null) {
             Stencil.write(false)
             GL11.glDisable(GL11.GL_TEXTURE_2D)
             GL11.glEnable(GL11.GL_BLEND)
             GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA)
-            RenderUtils.fastRoundedRect(4F, 4F, 34F, 34F, 0.2F)
+            RenderUtils.fastRoundedRect(4F, 4F, 34F, 34F, 0.5F)
             GL11.glDisable(GL11.GL_BLEND)
             GL11.glEnable(GL11.GL_TEXTURE_2D)
             Stencil.erase(true)

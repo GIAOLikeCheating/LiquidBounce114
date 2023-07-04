@@ -19,6 +19,7 @@ import net.ccbluex.liquidbounce.features.module.modules.misc.AntiBot
 import net.ccbluex.liquidbounce.features.module.modules.player.Blink1
 import net.ccbluex.liquidbounce.features.module.modules.tomk.Teams
 import net.ccbluex.liquidbounce.features.module.modules.render.FreeCam
+import net.ccbluex.liquidbounce.features.module.modules.tomk.VisualColor
 import net.ccbluex.liquidbounce.injection.backend.Backend
 import net.ccbluex.liquidbounce.utils.*
 import net.ccbluex.liquidbounce.utils.extensions.getDistanceToEntityBox
@@ -68,14 +69,15 @@ class KillAura : Module() {
     private val throughWallsRangeValue = FloatValue("ThroughWallsRange", 3f, 0f, 8f)
     private val rangeSprintReducementValue = FloatValue("RangeSprintReducement", 0f, 0f, 0.4f)
     // Modes
-    private val priorityValue = ListValue("Priority", arrayOf("Health", "Distance", "Direction", "LivingTime", "HYT"), "Distance")
+    private val priorityValue = ListValue("Priority", arrayOf("Health", "Distance", "Direction", "LivingTime", "Armor"), "Distance")
     private val targetModeValue = ListValue("TargetMode", arrayOf("Single", "Switch", "Multi"), "Switch")
     private val switchDelayValue = IntegerValue("SwitchDelay", 700, 0, 2000)
     // Bypass
     private val swingValue = BoolValue("Swing", true)
     val keepSprintValue = BoolValue("KeepSprint", true)
+    val keepSprintNoAirValue = BoolValue("KeepSprintNoAir", true)
     // AutoBlock
-    private val blockModeValue = ListValue("AutoBlock", arrayOf("Off", "Packet", "AfterTick"), "Packet")
+    private val blockModeValue = ListValue("AutoBlock", arrayOf("Off", "Packet", "AfterTick","Right"), "Packet")
     private val afterAttackValue = BoolValue("AutoBlock-AfterAttack", false)
     private val interactAutoBlockValue = BoolValue("InteractAutoBlock", true)
 
@@ -130,7 +132,7 @@ class KillAura : Module() {
     private val noInventoryDelayValue = IntegerValue("NoInvDelay", 200, 0, 500)
     private val limitedMultiTargetsValue = IntegerValue("LimitedMultiTargets", 0, 0, 50)
     // Visuals
-    private val markValue = ListValue("Mark", arrayOf("Liquid","FDP","Block","Jello", "Plat", "Red", "Sims", "None"),"FDP")
+    private val markValue = ListValue("Mark", arrayOf("Liquid","FDP","Block","Jello", "Plat", "Red", "Sims","Jello2","None"),"FDP")
     private val jelloRed = IntegerValue("jelloRed", 255, 0, 255)
     private val jelloGreen = IntegerValue("jelloGreen", 255, 0, 255)
     private val jelloBlue = IntegerValue("jelloBlue", 255, 0, 255)
@@ -159,6 +161,14 @@ class KillAura : Module() {
     var blockingStatus = false
     var syncEntity: IEntityLivingBase? = null
     var list = ""
+    val color4 = RenderUtils.getGradientOffset(
+        Color(VisualColor.r.get(), VisualColor.b.get(), VisualColor.g.get()),
+        Color(VisualColor.r2.get(), VisualColor.b2.get(), VisualColor.g2.get()),
+        (kotlin.math.abs(
+            System.currentTimeMillis() / VisualColor.gradientSpeed.get()
+                .toDouble() + (14 / 4)
+        ) / 10)
+    ).rgb
     companion object {
         @JvmStatic
         var killCounts = 0
@@ -192,6 +202,7 @@ class KillAura : Module() {
 
     @EventTarget
     fun onMotion(event: MotionEvent) {
+
 
         if (event.eventState == EventState.POST) {
             target ?: return
@@ -267,6 +278,7 @@ class KillAura : Module() {
     }
 
     fun update() {
+
         if (cancelRun || (noInventoryAttackValue.get() && (classProvider.isGuiContainer(mc.currentScreen) ||
                         System.currentTimeMillis() - containerOpen < noInventoryDelayValue.get())))
             return
@@ -292,6 +304,15 @@ class KillAura : Module() {
      */
     @EventTarget
     fun onUpdate(event: UpdateEvent) {
+        val thePlayer = mc.thePlayer!!
+        if (this.keepSprintNoAirValue.get()) {
+            if (thePlayer.onGround){
+                this.keepSprintValue.set(true)
+            }else{
+                this.keepSprintValue.set(false)
+            }
+        }
+
 
         if (lightingValue.get()) {
             when (lightingModeValue.get().toLowerCase()) {
@@ -584,8 +605,8 @@ class KillAura : Module() {
             attackTimer.reset()
             attackDelay = TimeUtils.randomClickDelay(minCPS.get(), maxCPS.get())
         }
-        if (this.markValue.get().toLowerCase().equals("tomk") && !targetModeValue.get().equals("Multi", ignoreCase = true))
-            RenderUtils.drawCircleESP(target, 0.67, Color.RED.rgb, true)
+        if (this.markValue.get().toLowerCase().equals("jello2") && !targetModeValue.get().equals("Multi", ignoreCase = true))
+            RenderUtils.drawCircleESP(target, 0.67, color4, true)
     }
     /**
      * Handle entity move
@@ -675,6 +696,7 @@ class KillAura : Module() {
         val theWorld = mc.theWorld!!
         val thePlayer = mc.thePlayer!!
 
+
         for (entity in theWorld.loadedEntityList) {
             if (!classProvider.isEntityLivingBase(entity) || !isEnemy(entity) || (switchMode && prevTargetEntities.contains(entity.entityId)))
                 continue
@@ -692,7 +714,7 @@ class KillAura : Module() {
             "health" -> targets.sortBy { it.health } // Sort by health
             "direction" -> targets.sortBy { RotationUtils.getRotationDifference(it) } // Sort by FOV
             "livingtime" -> targets.sortBy { -it.ticksExisted } // Sort by existence
-            "hyt" -> targets.sortBy { it.hurtResistantTime } // Sort by armor
+            "armor" -> targets.sortBy { it.hurtResistantTime } // Sort by armor
         }
 
         // Find best target
@@ -745,6 +767,7 @@ class KillAura : Module() {
      * Attack [entity]
      */
     private fun attackEntity(entity: IEntityLivingBase) {
+
         // Stop blocking
         val thePlayer = mc.thePlayer!!
 
@@ -765,6 +788,7 @@ class KillAura : Module() {
 
         if (swingValue.get() && Backend.MINECRAFT_VERSION_MINOR != 8)
             thePlayer.swingItem()
+
 
         if (keepSprintValue.get()) {
             // Critical Effect
@@ -796,6 +820,10 @@ class KillAura : Module() {
         // Start blocking after attack
         if (blockModeValue.get().equals("Packet", true) && (thePlayer.isBlocking || canBlock))
             startBlocking(entity, interactAutoBlockValue.get())
+
+        //new block
+        if (blockModeValue.get().equals("Right",true) && (thePlayer.isBlocking || canBlock))
+            startBlocking(entity,false)
 
         @Suppress("ConstantConditionIf")
         if (Backend.MINECRAFT_VERSION_MINOR != 8) {
@@ -973,11 +1001,11 @@ class KillAura : Module() {
             val movingObject = boundingBox.calculateIntercept(positionEye, lookAt) ?: return
             val hitVec = movingObject.hitVec
 
-            mc.netHandler.addToSendQueue(classProvider.createCPacketUseEntity(interactEntity, WVec3(
-                    hitVec.xCoord - interactEntity.posX,
-                    hitVec.yCoord - interactEntity.posY,
-                    hitVec.zCoord - interactEntity.posZ)
-            ))
+           // mc.netHandler.addToSendQueue(classProvider.createCPacketUseEntity(interactEntity, WVec3(
+              //      hitVec.xCoord - interactEntity.posX,
+               //     hitVec.yCoord - interactEntity.posY,
+              //      hitVec.zCoord - interactEntity.posZ)
+           // ))
             mc.netHandler.addToSendQueue(classProvider.createCPacketUseEntity(interactEntity, ICPacketUseEntity.WAction.INTERACT))
         }
         mc.netHandler.addToSendQueue(createUseItemPacket(mc.thePlayer!!.inventory.getCurrentItemInHand(), WEnumHand.MAIN_HAND))

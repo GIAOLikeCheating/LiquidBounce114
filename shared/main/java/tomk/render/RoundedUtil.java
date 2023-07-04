@@ -12,15 +12,14 @@ import static net.minecraft.client.renderer.GlStateManager.resetColor;
 
 public class RoundedUtil {
 
-    private static final ShaderUtil roundedTexturedShader = new ShaderUtil("liquidbounce/shader/fragment/roundrecttextured.frag");
+    private static final ShaderUtil roundedTexturedShader = new ShaderUtil("liquidwing/shader/fragment/roundrecttextured.frag");
     private static final ShaderUtil roundedGradientShader = new ShaderUtil("roundedRectGradient");
     public static ShaderUtil roundedShader = new ShaderUtil("roundedRect");
-    public static ShaderUtil roundedOutlineShader = new ShaderUtil("liquidbounce/shader/fragment/roundrectoutline.frag");
+    public static ShaderUtil roundedOutlineShader = new ShaderUtil("liquidwing/shader/fragment/roundrectoutline.frag");
 
     public static void drawRound(float x, float y, float width, float height, float radius, Color color) {
         drawRound(x, y, width, height, radius, false, color);
     }
-
 
     public static void drawRoundScale(float x, float y, float width, float height, float radius, Color color, float scale) {
         drawRound(x + width - width * scale, y + height / 2f - ((height / 2f) * scale),
@@ -70,6 +69,21 @@ public class RoundedUtil {
         GlStateManager.disableBlend();
     }
 
+    public static void drawRound(float x, float y, float width, float height, float radius, boolean blur, int color) {
+        resetColor();
+        GlStateManager.enableBlend();
+        GlStateManager.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
+        roundedShader.init();
+
+        setupRoundedRectUniforms(x, y, width, height, radius, roundedShader);
+        roundedShader.setUniformi("blur", blur ? 1 : 0);
+        roundedShader.setUniformf("color", color);
+
+        ShaderUtil.drawQuads(x - 1, y - 1, width + 2, height + 2);
+        roundedShader.unload();
+        GlStateManager.disableBlend();
+    }
+
 
     public static void drawRoundOutline(float x, float y, float width, float height, float radius, float outlineThickness, Color color, Color outlineColor) {
         resetColor();
@@ -96,7 +110,7 @@ public class RoundedUtil {
         roundedTexturedShader.setUniformi("textureIn", 0);
         setupRoundedRectUniforms(x, y, width, height, radius, roundedTexturedShader);
         roundedTexturedShader.setUniformf("alpha", alpha);
-        ShaderUtil.drawQuads(x - 1, y - 1, width + 2, height + 2);
+        ShaderUtil.drawQuads(x, y - 1, width, height + 2);
         roundedTexturedShader.unload();
         GlStateManager.disableBlend();
     }

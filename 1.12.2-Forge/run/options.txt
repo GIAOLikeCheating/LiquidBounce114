@@ -4,19 +4,19 @@ mouseSensitivity:0.44366196
 fov:0.375
 gamma:1.0
 saturation:0.0
-renderDistance:5
+renderDistance:4
 guiScale:2
 particles:2
 bobView:false
 anaglyph3d:false
 maxFps:260
 fboEnable:true
-difficulty:2
+difficulty:1
 fancyGraphics:false
 ao:0
 renderClouds:false
-resourcePacks:["!   §bvip§der §8[§b16§dx§8].zip","打击音效玻璃.zip"]
-incompatibleResourcePacks:["!   §bvip§der §8[§b16§dx§8].zip","打击音效玻璃.zip"]
+resourcePacks:[]
+incompatibleResourcePacks:[]
 lastServer:
 lang:en_us
 chatVisibility:0

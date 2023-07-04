@@ -1,13 +1,15 @@
 package net.ccbluex.liquidbounce.ui.client.hud.element.elements
 
+
 import net.ccbluex.liquidbounce.ui.client.hud.element.Border
 import net.ccbluex.liquidbounce.ui.client.hud.element.Element
 import net.ccbluex.liquidbounce.ui.client.hud.element.ElementInfo
 import net.ccbluex.liquidbounce.ui.font.Fonts
+import tomk.hotbarutil
 import net.ccbluex.liquidbounce.utils.render.ColorUtils
 import net.minecraft.client.renderer.GlStateManager
 import net.minecraft.client.renderer.RenderHelper
-import tomk.hotbarutil
+import net.minecraft.client.util.ITooltipFlag
 import java.awt.Color
 import kotlin.collections.ArrayList
 
@@ -40,7 +42,7 @@ import kotlin.collections.ArrayList
             val scale = hotbarutil.translate.x
             val positionX = (index * 25 / scale) - 5
             val currentitem = mc.thePlayer!!.inventory.mainInventory[mc.thePlayer!!.inventory.currentItem]
-
+            val currentitem2 = mc2.player!!.inventory.mainInventory[mc2.player!!.inventory.currentItem]
             hotbarutil.size = if (hover) 1.5f else 1.0f
             hotbarutil.translate.translate(hotbarutil.size, 0f, 2.0)
 
@@ -49,7 +51,7 @@ import kotlin.collections.ArrayList
                 GlStateManager.scale(scale - 0.5f, scale - 0.5f, scale - 0.5f)
 
                 try {
-                    val list = currentitem!!.getTooltip(mc.thePlayer!!, { mc.gameSettings.advancedItemTooltips })
+                    val list = currentitem2.getTooltip(mc2.player, ITooltipFlag { mc.gameSettings.advancedItemTooltips })
                     val infolist : ArrayList<String> = ArrayList()
 
                     for(i in 0 until list.size) {
@@ -59,8 +61,8 @@ import kotlin.collections.ArrayList
                     }
                     var posy = -13f
                     infolist.forEachIndexed{index , it ->
-                        val font = if(ColorUtils.stripColor(infolist[index]) == currentitem.displayName) Fonts.sfbold35 else Fonts.sfbold30
-                        font.drawString(infolist[index], positionX * 1.5f,-(8.5f * infolist.size) + posy,if(ColorUtils.stripColor(infolist[index]) == currentitem.displayName) -1 else Color(175 ,175 ,175).rgb, true)
+                        val font = if(ColorUtils.stripColor(infolist[index]) == currentitem!!.displayName) Fonts.font40 else Fonts.font35
+                        font.drawString(infolist[index], positionX * 1.5f,-(8.5f * infolist.size) + posy,if(ColorUtils.stripColor(infolist[index]) == currentitem!!.displayName) -1 else Color(175 ,175 ,175).rgb, true)
                         posy += font.fontHeight + 2f
                     }
                     infolist.clear()
@@ -80,6 +82,6 @@ import kotlin.collections.ArrayList
         GlStateManager.disableRescaleNormal()
         GlStateManager.disableBlend()
         GlStateManager.popMatrix()
-        return Border(0f, 0f, 200f, 15f)
+        return Border(0f, 0f, 180f, 17f)
     }
 }

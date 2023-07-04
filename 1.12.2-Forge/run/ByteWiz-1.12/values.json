@@ -2,9 +2,9 @@
   "CommandPrefix": ".",
   "targets": {
     "TargetPlayer": true,
-    "TargetMobs": false,
+    "TargetMobs": true,
     "TargetAnimals": false,
-    "TargetInvisible": false,
+    "TargetInvisible": true,
     "TargetDead": false
   },
   "features": {
@@ -42,28 +42,28 @@
   },
   "Animations": {
     "Blocking-X": 0.0,
-    "Blocking-Y": 0.0,
+    "Blocking-Y": 0.57,
     "Blocking-Z": 0.0,
-    "Blocking-scale": 0.8,
+    "Blocking-scale": 0.56,
     "Held-X": 0.0,
-    "Held-Y": 0.0,
+    "Held-Y": 0.29,
     "Held-Z": 0.0,
-    "Held-scale": 0.18,
-    "Held": false,
-    "Progress": false,
-    "Progress1.8": false,
-    "Rotate-Speed": 1.0,
+    "Held-scale": 0.57,
+    "Held": true,
+    "Progress": true,
+    "Progress1.8": true,
+    "Rotate-Speed": 1.69,
     "RotateMode": "RotateY",
-    "CustomRotateXAxis": 0.0,
-    "CustomRotateYAxis": 0.0,
-    "CustomRotateZAxis": 0.0,
-    "Swing-Speed": 4,
-    "Sword": "ETB",
-    "Container-Animation": "Zoom",
+    "CustomRotateXAxis": 180.0,
+    "CustomRotateYAxis": 180.0,
+    "CustomRotateZAxis": 180.0,
+    "Swing-Speed": 10,
+    "Sword": "Exhibition",
+    "Container-Animation": "None",
     "Slide-Vertical": "Downward",
     "Slide-Horizontal": "Right",
     "Container-AnimTime": 750,
-    "Tab-Animation": "None"
+    "Tab-Animation": "Zoom"
   },
   "AntiAFK": {
     "Mode": "Random",
@@ -110,15 +110,16 @@
     "MinCPS": 11,
     "HurtTime": 10,
     "Cooldown": 1.0,
-    "Range": 3.0,
+    "Range": 3.68,
     "ThroughWallsRange": 1.98,
     "RangeSprintReducement": 0.0,
     "Priority": "Health",
     "TargetMode": "Switch",
     "SwitchDelay": 356,
     "Swing": true,
-    "KeepSprint": true,
-    "AutoBlock": "Packet",
+    "KeepSprint": false,
+    "KeepSprintNoAir": true,
+    "AutoBlock": "Right",
     "AutoBlock-AfterAttack": false,
     "InteractAutoBlock": false,
     "RayCast": true,
@@ -132,7 +133,7 @@
     "Outborder": false,
     "MaxTurnSpeed": 180.0,
     "MinTurnSpeed": 180.0,
-    "Predict": true,
+    "Predict": false,
     "MaxPredictSize": 0.86,
     "MinPredictSize": 0.56,
     "Lighting": false,
@@ -145,10 +146,10 @@
     "NoInvAttack": false,
     "NoInvDelay": 200,
     "LimitedMultiTargets": 0,
-    "Mark": "Jello",
-    "jelloRed": 126,
+    "Mark": "Jello2",
+    "jelloRed": 152,
     "jelloGreen": 0,
-    "jelloBlue": 132,
+    "jelloBlue": 160,
     "FakeSharp": false,
     "Circle": true,
     "CircleRed": 191,
@@ -201,17 +202,21 @@
     "Instant": true
   },
   "AutoSoup": {
-    "Health": 15.0,
+    "Health": 10.4,
     "Delay": 150,
     "OpenInv": false,
     "SimulateInventory": true,
-    "Bowl": "Drop"
+    "Bowl": "Move"
   },
   "AutoWeapon": {
     "SpoofItem": false,
     "SpoofTicks": 10
   },
   "Blink": {
+    "Pulse": false,
+    "PulseDelay": 1000
+  },
+  "Blink1": {
     "Pulse": false,
     "PulseDelay": 1000,
     "CancelC0F": true
@@ -279,6 +284,9 @@
     "MaxFallDistance": 10,
     "MaxDistanceToSetback": 2.5,
     "Indicator": true
+  },
+  "Cape": {
+    "Style": "Dark2"
   },
   "Chams": {
     "Targets": true,
@@ -501,13 +509,29 @@
   "GhostHand": {
     "Block": 54
   },
+  "GrimVelocity": {
+    "GroundTicks": 6,
+    "AirTicks": 6,
+    "NoS12": true,
+    "CancelPacket": "S32",
+    "C0fResend": true,
+    "S32Test": true,
+    "DelayClintPacket": false,
+    "ServerPacketTest": true,
+    "NoMoveFix": true,
+    "OnlyMove": false,
+    "OnlyGround": false,
+    "AutoDisableMode": "slient",
+    "AutoSilentTicks": 8,
+    "debug": false
+  },
   "HUD": {
     "Hud Mode": "Fade",
-    "Hotbar": true,
-    "HotbarRect": false,
-    "HotbarEase": false,
+    "Hotbar": false,
+    "HotbarRect": true,
+    "HotbarEase": true,
     "InventoryParticle": false,
-    "HideHotbar": false,
+    "HideHotbar": true,
     "BetterHotbar": false,
     "FontChat": false,
     "ChatRect": false,
@@ -666,7 +690,7 @@
     "hurttime": 10,
     "hurttime2": 10,
     "AirRange": 3.0,
-    "GroundRange": 3.83,
+    "GroundRange": 3.68,
     "Debug": false
   },
   "LiquidChat": {
@@ -687,6 +711,10 @@
     "Limit": 80.0,
     "Speed": 0.05
   },
+  "MoreVisualColors": {
+    "WhichColor": "Default",
+    "Debug": true
+  },
   "NameProtect": {
     "AllPlayers": false,
     "SkinProtect": true,
@@ -705,8 +733,18 @@
     "Border": false,
     "Scale": 1.0
   },
+  "NewGUI": {
+    "FastRender": true,
+    "Color": "Custom",
+    "Red": 0,
+    "Green": 140,
+    "Blue": 73,
+    "Saturation": 1.0,
+    "Brightness": 1.0,
+    "Seconds": 2
+  },
   "NoC03": {
-    "C03Range": 6.0
+    "C03Range": 8.0
   },
   "NoFOV": {
     "FOV": 1.0
@@ -734,7 +772,7 @@
     "BowForwardMultiplier": 1.0,
     "BowStrafeMultiplier": 1.0,
     "PacketFix": true,
-    "Soulsand": false
+    "Soulsand": true
   },
   "NoSlowBreak": {
     "Air": true,
@@ -757,7 +795,7 @@
     "NukeDelay": 1
   },
   "OldHitting": {
-    "Mode": "SigmaOld",
+    "Mode": "MineCraft",
     "Only-Sword": true,
     "SpeedSwing": 3,
     "itemPosX": 0.03,
@@ -812,7 +850,7 @@
   },
   "Scaffold": {
     "Mode": "Normal",
-    "MaxDelay": 28,
+    "MaxDelay": 38,
     "MinDelay": 28,
     "PlaceableDelay": true,
     "AutoBlock": "Pick",
@@ -846,7 +884,7 @@
     "SpeedModifier": 0.0,
     "Slow": false,
     "SlowSpeed": 0.8,
-    "SameY": false,
+    "SameY": true,
     "SmartSpeed": false,
     "AutoJump": true,
     "SafeWalk": true,
@@ -1025,14 +1063,15 @@
     "Custom-C06FakeLag": false
   },
   "VisualColor": {
-    "blur": true,
-    "Shadow": true,
+    "WhichColor": "Default",
+    "blur": false,
+    "Shadow": false,
     "ClientRed": 120,
     "ClientGreen": 0,
-    "ClientBlue": 127,
-    "ClientRed2": 165,
-    "ClientGreen2": 0,
-    "ClientBlue2": 172,
+    "ClientBlue": 150,
+    "ClientRed2": 0,
+    "ClientGreen2": 185,
+    "ClientBlue2": 205,
     "DoubleColor-Speed": 155
   },
   "WallClimb": {

@@ -79,7 +79,8 @@ class Target : Element() {
                 Slowly(this),
                 Vape(this),
                 ByteWiz(this),
-                Chill(this)
+                Chill(this),
+                As(this)
         ).toTypedArray(), "LiquidBounce")
     }
 

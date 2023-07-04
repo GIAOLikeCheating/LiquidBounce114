@@ -5,12 +5,14 @@
  */
 package net.ccbluex.liquidbounce.ui.client.hud.element.elements
 
+import net.ccbluex.liquidbounce.features.module.modules.tomk.VisualColor
 import net.ccbluex.liquidbounce.ui.client.hud.element.Border
 import net.ccbluex.liquidbounce.ui.client.hud.element.Element
 import net.ccbluex.liquidbounce.ui.client.hud.element.ElementInfo
 import net.ccbluex.liquidbounce.ui.client.hud.element.Side
 import net.ccbluex.liquidbounce.ui.font.AWTFontRenderer.Companion.assumeNonVolatile
 import net.ccbluex.liquidbounce.ui.font.Fonts
+import net.ccbluex.liquidbounce.utils.render.RenderUtils
 import net.ccbluex.liquidbounce.value.BoolValue
 import net.ccbluex.liquidbounce.value.FontValue
 import tomk.render.RoundedUtil
@@ -58,13 +60,15 @@ class Effects(x: Double = 2.0, y: Double = 10.0, scale: Float = 1F,
 
             val name = "${functions.formatI18n(potion.name)} $number§f: §7${effect.getDurationString()}"
             val stringWidth = fontRenderer.getStringWidth(name).toFloat()
+            val color1 = RenderUtils.getGradientOffset(Color(VisualColor.r.get(), VisualColor.b.get(), VisualColor.g.get()), Color(
+                VisualColor.r2.get(), VisualColor.b2.get(), VisualColor.g2.get(),1), (Math.abs(System.currentTimeMillis() / y.toDouble() + 2 * 3) / 10)).rgb
 
             if (width < stringWidth)
                 width = stringWidth
 
             //fontRenderer.drawString(name, -stringWidth, y, potion.liquidColor, shadow.get())
             //box
-            RoundedUtil.drawRoundOutline(40F,40F,-stringWidth,y,3F,2F, Color(255,255,255),Color(108,0,122))
+            RoundedUtil.drawRoundOutline(40F,40F,-stringWidth,y,3F,2F, Color(255,255,255),Color(color1))
             fontRenderer.drawString(name , -stringWidth , y , 10444702 , shadow.get())
 
 

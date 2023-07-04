@@ -42,7 +42,7 @@ class Text(x: Double = 10.0, y: Double = 10.0, scale: Float = 1F,
          */
         fun defaultClient(): Text {
             val text = Text(x = 2.0, y = 2.0, scale = 2F)
-            text.displayString.set( "Tomk | Fps:%fps% | %serverip%")
+            text.displayString.set( "ByteWiz | Fps:%fps% | %serverip%")
             text.shadow.set(true)
             text.fontValue.set(Fonts.sfbold40)
             text.setColor(Color(0, 111, 255))

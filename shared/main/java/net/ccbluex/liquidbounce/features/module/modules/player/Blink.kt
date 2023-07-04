@@ -5,8 +5,6 @@
  */
 package net.ccbluex.liquidbounce.features.module.modules.player
 
-/**
- * @author Potatochips*/
 import net.ccbluex.liquidbounce.LiquidBounce
 import net.ccbluex.liquidbounce.api.minecraft.client.entity.player.IEntityOtherPlayerMP
 import net.ccbluex.liquidbounce.api.minecraft.network.IPacket
@@ -28,16 +26,15 @@ import java.awt.Color
 import java.util.*
 import java.util.concurrent.LinkedBlockingQueue
 
-@ModuleInfo(name = "Blink", description = "SHIT", category = ModuleCategory.PLAYER)
-class Blink1 : Module() {
+@ModuleInfo(name = "Blink", description = "Suspends all movement packets.", category = ModuleCategory.PLAYER)
+class Blink : Module() {
     private val packets = LinkedBlockingQueue<IPacket>()
     private var fakePlayer: IEntityOtherPlayerMP? = null
     private var disableLogger = false
     private val positions = LinkedList<DoubleArray>()
-    val pulseValue = BoolValue("Pulse", false)
+    private val pulseValue = BoolValue("Pulse", false)
     private val pulseDelayValue = IntegerValue("PulseDelay", 1000, 500, 5000)
     private val pulseTimer = MSTimer()
-    private val cancelC0f = BoolValue("CancelC0F",true)
 
     override fun onEnable() {
         val thePlayer = mc.thePlayer ?: return
@@ -87,15 +84,12 @@ class Blink1 : Module() {
             event.cancelEvent()
 
         if (classProvider.isCPacketPlayerPosition(packet) || classProvider.isCPacketPlayerPosLook(packet) ||
-            classProvider.isCPacketPlayerBlockPlacement(packet) ||
-            classProvider.isCPacketAnimation(packet) ||
-            classProvider.isCPacketEntityAction(packet) || classProvider.isCPacketUseEntity(packet)){
+                classProvider.isCPacketPlayerBlockPlacement(packet) ||
+                classProvider.isCPacketAnimation(packet) ||
+                classProvider.isCPacketEntityAction(packet) || classProvider.isCPacketUseEntity(packet)) {
             event.cancelEvent()
             packets.add(packet)
         }
-
-        //取消C0F然后加到packet中,等到关闭的时候发出去//
-        //fixed by potatochipscn//
     }
 
     @EventTarget
